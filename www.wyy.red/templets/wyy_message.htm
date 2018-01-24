@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?php echo $cfg_soft_lang; ?>">
+<title>购房需求管理</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<script language="javascript" src="../include/js/dedeajax2.js"></script>
+<script language="javascript" src="js/ieemu.js"></script>
+<script language="javascript" src="js/context_menu.js"></script>
+<script language="javascript" src="js/main.js"></script>
+<script language="javascript" src="js/list.js"></script>
+</head>
+<body leftmargin="8" topmargin="8" background='images/allbg.gif' onLoad="ContextMenu.intializeContextMenu()">
+  
+<!--  内容列表   -->
+<form name="form2">
+<table width="98%" border="0" cellpadding="2" cellspacing="1" bgcolor="#CFCFCF" align="center" style="margin-top:8px">
+<tr bgcolor="#E7E7E7" >
+	<td height="28" colspan="11" background="images/tbg.gif" style="padding-left:10px;">
+	◆ <b style="color:#f6ca1d;">购房需求</b> {dede:global.positionname/}列表
+	</td>
+</tr>
+<tr align="center" bgcolor="#FBFCE2" height="25">
+	<td width="1%"></td>
+	<td width="5%">ID</td>
+	<td width="5%">是否审核</td>
+	<td width="6%">姓名</td>
+	<td width="6%">购房地区</td>
+	<td width="10%">Email/QQ</td>
+	<td width="6%">手机</td>
+	
+	<td width="5%">购房预算</td>
+	<td width="8%">提交日期</td>
+</tr>
+{dede:datalist}
+<tr align='center' bgcolor="#FFFFFF" height="26" align="center" onMouseMove="javascript:this.bgColor='#FCFDEE';" onMouseOut="javascript:this.bgColor='#FFFFFF';">
+	
+	<td>
+		<input name="arcID" type="checkbox" id="arcID" value="{dede:field.id/}" class="np" />
+	</td>
+	<td nowrap>
+		{dede:field.id/}
+	</td>
+	<td style="{dede:if $fields['check'] == '否'}color:red{/dede:if}">{dede:field.check/}</td>
+	<td>{dede:field.name/}</td>
+	<td>{dede:field.address/}</td>
+	<td>{dede:field.email/}</td>
+	<td>{dede:field.tel/}</td>
+	
+	<td>{dede:field.budget/}</td>
+	<td>{dede:field.time/}</td>
+</tr>
+{/dede:datalist}
+<tr bgcolor="#ffffff">
+<td height="36" colspan="11">
+	&nbsp;
+	<a href="javascript:selAll()" class="coolbg">全选</a>
+	<a href="javascript:noSelAll()" class="coolbg">&nbsp;取消&nbsp;</a>
+	<a href="javascript:post(0)" class="coolbg">&nbsp;审核&nbsp;</a>
+	<a href="javascript:n_post(0)" class="coolbg">&nbsp;取消审核&nbsp;</a>
+	<a href="javascript:delpg(0)" class="coolbg">&nbsp;删除&nbsp;</a>
+</td>
+</tr>
+</form>
+<tr align="right" bgcolor="#F9FCEF">
+	<td height="36" colspan="11" align="center">
+		{dede:pagelist listsize=3/}
+	</td>
+</tr>
+</table>
+
+<script>
+//批量删除
+function delpg(aid){
+ if (confirm("此操作不可逆，确定要删除吗？"))
+ {
+	var qstr=getCheckboxItem();
+	if(aid==0) aid = getOneItem();
+	location="gd_do.php?qstr="+qstr+"&aid="+aid+"&table=gd_gfxq&do=del";
+ }
+}
+
+//批量审核
+function post(aid){
+	var qstr = getCheckboxItem();
+	if (aid==0) aid = getOneItem();
+	location="gd_do.php?qstr="+qstr+"&aid="+aid+"&table=gd_gfxq&do=post";
+}
+
+//批量取消审核
+function n_post(aid){
+	var qstr = getCheckboxItem();
+	if(aid==0) aid = getOneItem();
+	location="gd_do.php?qstr="+qstr+"&aid="+aid+"&table=gd_gfxq&do=n_post";
+}
+</script>
+
+</body>
+</html>

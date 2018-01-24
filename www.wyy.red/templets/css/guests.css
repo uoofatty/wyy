@@ -1,0 +1,63 @@
+body{
+    background: #f8f8f8;
+}
+.navbar-default{
+    background: #fff;
+}
+
+.post {
+    padding: 35px;
+    background: #fff;
+    margin-bottom: 35px;
+    position: relative;
+    overflow: hidden;
+}
+
+.post .post-head {
+    text-align: center;
+}
+
+.post .post-head .post-title {
+    margin: 0;
+    font-size: 2em;
+    line-height: 1.2em;
+}
+
+.post .post-head .post-title a {
+    color: #303030;
+    text-decoration: none;
+}
+
+.post .post-head .post-meta {
+    color: #959595;
+    margin: 14px 0 0;
+}
+
+.post .featured-media {
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.post .post-content {
+    margin: 30px 0;
+}
+
+.post-content {
+    font: 400 18px/1.62 Georgia,"Xin Gothic","Hiragino Sans GB","Droid Sans Fallback","Microsoft YaHei",sans-serif;
+    color: #444443;
+}
+
+.post .post-footer {
+    margin-top: 30px;
+    border-top: 1px solid #ebebeb;
+    padding: 21px 0 0;
+}
+
+.sidebar .widget {
+    background: #fff;
+    padding: 21px 30px;
+}
+
+.widget {
+    margin-bottom: 35px;
+}

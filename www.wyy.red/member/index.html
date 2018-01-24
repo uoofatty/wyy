@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <!--<link rel="stylesheet" href="css/iconfont.css">-->
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/pub.css">
+    <link rel="stylesheet" href="css/m-index.css">
+</head>
+<body>
+<header class="main-header" style="background-image: url(images/red.jpg)">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="text-center" style="font-family: 'Agency FB'; color: #fff; padding: 15px 0;">
+                    wyy.red  - beta version for package module
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header text-center">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+
+                <li class="active"><a href="#">签收包裹 </a></li>
+                <li><a href="#">快速取件 </a></li>
+                <li><a href="#">历史包裹 </a></li>
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">短消息 <span class="badge">1</span></a></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">早上好，双龙南里203 <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                <li><a href="#">基本信息</a></li>
+                <li><a href="#">修改密码</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">是否确定?</li>
+                <li><a href="#esc">退出</a></li>
+                </ul>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id='myModal' class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title wyy" id="myModalLabel">😊 wyy.red 提示</h4>
+            </div>
+            <div class="modal-body">
+                <div class="media">
+                    <div class="media-left media-middle pull-left">
+                        <h3 class="text-success ">
+                            包裹编号：
+                        </h3>
+                    </div>
+                    <div class="media-body text-left">
+                        <h3 class="text-success">
+                           0122-18
+                        </h3>
+                        <h3 class="text-success">
+                            0122-18
+                        </h3>
+                        <h3 class="text-success">
+                            0122-18
+                        </h3>
+                    </div>
+                </div>
+
+                <hr>
+                <p>
+                    姓名：张三
+                </p>
+                <p>
+                    手机：13012341234
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-success">确认签收</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <main class="col-md-8  main-content" >
+                <article class="post" style="background: #3c353e; padding :35px 35px 0; margin-bottom: 0;">
+                    <form id='fm' name='fm' class="form-horizontal">
+                        <div class="form-group">
+                            <label for="name" class="col-sm-2 control-label" style="color: #fff;">姓名</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="输入快递联系人姓名">
+                            </div>
+                        </div>
+                        <div class="form-group" >
+                            <label for="tel" class="col-sm-2 control-label" style="color: #fff;">手机号码</label>
+                            <div class="col-sm-10" style="height: 35px;">
+                                <input type="number" class="form-control" id="tel" name="tel" placeholder="输入快递联系人手机号码">
+                                <ul id="tel_ck" multiple class=" tel-ck" style="display: none;">
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="num" class="col-sm-2 control-label" style="color: #fff;">包裹个数</label>
+                            <div class="col-sm-10">
+                                <div class="input-group col-sm-5 col-xs-12">
+                                    <div id='subnum' class="btn input-group-addon"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></div>
+                                    <input type="number" class="form-control text-center" id="num" value="1" >
+                                    <div id='addnum' class="btn input-group-addon"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id='inbg' class="button button-action button-rounded button-longshadow col-sm-5" style=" height: 35px; line-height: 35px;">立即签收</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </article>
+                <article class="post hidden" style="background: #282c37; padding :35px 35px 0; margin-bottom: 0;">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="nametel" class="col-sm-2 control-label" style="color: #fff;">姓名或手机号</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nametel" placeholder="输入快递联系人姓名或手机号查询">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id='outbg' class="button button-primary button-rounded button-longshadow  col-sm-5" style=" height: 35px; line-height: 35px;">查询包裹</button>
+                            </div>
+                        </div>
+                    </form>
+                </article>
+                <article class="post hidden" style="background: #08182b; padding :35px 35px 0; margin-bottom: 0;">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="nametel" class="col-sm-2 control-label" style="color: #fff;">姓名或手机号</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="nametel" placeholder="输入快递联系人姓名或手机号查询">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id='returnbg' class="button button-caution button-rounded button-longshadow  col-sm-5" style=" height: 35px; line-height: 35px;">查询历史包裹</button>
+                            </div>
+                        </div>
+                    </form>
+                </article>
+                <article class="post" style="background: #fff;">
+                    <table class="table table-bordered  table-striped">
+                        <thead>
+                        <tr>
+                            <th>※</th>
+                            <th>😃 姓名</th>
+                            <th class="hidden-xs">📱 手机</th>
+                            <th class="hidden-xs">🕓 时间</th>
+                            <th>✔ 操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <th>测试1</th>
+                            <td class="hidden-xs">13512341234</td>
+                            <td class="hidden-xs">2018-01-11</td>
+                            <td>
+                                <button class="btn btn-xs btn-success">
+                                    取件
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <th>测试1</th>
+                            <td class="hidden-xs">13512341234</td>
+                            <td class="hidden-xs">2018-01-11</td>
+                            <td>
+                                <button class="btn btn-xs btn-success">
+                                    取件
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <th>测试1</th>
+                            <td class="hidden-xs">13512341234</td>
+                            <td class="hidden-xs">2018-01-11</td>
+                            <td>
+                                <button class="btn btn-xs btn-success">
+                                    取件
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <th>测试1</th>
+                            <td class="hidden-xs">13512341234</td>
+                            <td class="hidden-xs">2018-01-11</td>
+                            <td>
+                                <button class="btn btn-xs btn-success">
+                                    取件
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <th>测试1</th>
+                            <td class="hidden-xs">13512341234</td>
+                            <td class="hidden-xs">2018-01-11</td>
+                            <td>
+                                <button class="btn btn-xs btn-success">
+                                    取件
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <th>测试1</th>
+                            <td class="hidden-xs">13512341234</td>
+                            <td class="hidden-xs">2018-01-11</td>
+                            <td>
+                                <button class="btn btn-xs btn-success">
+                                    取件
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">7</th>
+                            <th>测试1</th>
+                            <td class="hidden-xs">13512341234</td>
+                            <td class="hidden-xs">2018-01-11</td>
+                            <td>
+                                <button class="btn btn-xs btn-success">
+                                    取件
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">8</th>
+                            <th>测试1</th>
+                            <td class="hidden-xs">13512341234</td>
+                            <td class="hidden-xs">2018-01-11</td>
+                            <td>
+                                <button class="btn btn-xs btn-success">
+                                    取件
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">9</th>
+                            <th>测试1</th>
+                            <td class="hidden-xs">13512341234</td>
+                            <td class="hidden-xs">2018-01-11</td>
+                            <td>
+                                <button class="btn btn-xs btn-success">
+                                    取件
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10</th>
+                            <th>测试1</th>
+                            <td class="hidden-xs">13512341234</td>
+                            <td class="hidden-xs">2018-01-11</td>
+                            <td>
+                                <button class="btn btn-xs btn-success">
+                                    取件
+                                </button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </main>
+            <aside class="col-md-4 sidebar">
+                <div class="widget">
+                    <h4 class="title">我的信息</h4>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-danger" style="width: 38.2%"></div>
+                    </div>
+                    <div class="media row">
+                        <div class="media-left media-middle col-xs-4">
+                            <a href="#">
+                                <img class="media-object img-thumbnail" src="images/t.jpg" alt="." style="width: 100%;" >
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">双龙南里203</h4>
+                            我的个性签名
+                        </div>
+                    </div>
+                </div>
+
+                <div class="widget">
+                    <h4 class="title">客服留言</h4>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-danger" style="width: 38.2%"></div>
+                    </div>
+                    <div class="content community">
+                        <form name='fm'>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">用户</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Email" name='email' value="双龙南里203">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">留言</label>
+                                <textarea class="form-control" rows="3" id="exampleInputPassword1" placeholder="Enter information" name='body'></textarea>
+                            </div>
+                            <button type="button" id='message' class="button button-caution button-rounded button-longshadow" style=" height: 35px; line-height: 35px; width:100%;">发送</button>
+                        </form>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <nav class='nav' style='height:300px; background:#202020; border-bottom:1px solid #303030;'>
+    </nav>
+    <div class=" nav text-center" style='background:#111;'>
+        <p class='textshadow' style='color:#666; padding:15px 0 10px;'>Nothing is beneath you if it is in the direction of your life. </p>
+    </div>
+</footer>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/buttons.js"></script>
+<script src="js/mydb.js"></script>
+<script src="js/ck_log.js"></script>
+<script src="js/m_index.js"></script>
+
+
+
+</body>
+</html>

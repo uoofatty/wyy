@@ -1,0 +1,9 @@
+$('#guests').click(function(){
+	location.href='http://wyy.red/guests';
+});
+$('#signin').click(function(){
+	location.href='http://wyy.red/member/';
+});
+$('.domain').click(function(){
+    location.href='/';
+});
